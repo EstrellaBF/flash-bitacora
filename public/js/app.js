@@ -3,15 +3,25 @@ $(document).ready(function() {
 
   // 
   $buttonsBitacora.on('click', 'li', function(e) {
+    let that = e.target.innerHTML;
     // console.log(e.target.innerHTML);
-    if(e.target.innerHTML === 'video_library'){
-      console.log(e.target.innerHTML);
-    } else if (e.target.innerHTML === 'today'){
-      console.log(e.target.innerHTML);
-    } else if (e.target.innerHTML === 'perm_media'){
-      console.log();
-    } else if (e.target.innerHTML === 'chat') {
-      console.log(e.target.innerHTML);
+    if(that=== 'video_library'){
+      // console.log(that);
+      $(e.target).parent().attr('href', '#modal1').addClass('modal-trigger');
+      $('.modal-content').find('h4').text('Insert your video');
+    } else if (that=== 'today'){
+      console.log(that);
+      console.log(e.target);
+      $(e.target).parent().attr('href', '#modal1').addClass('modal-trigger');
+      $('.modal-content').find('h4').text('Your Calendar');
+    } else if (that=== 'perm_media'){
+      console.log(that);
+      $(e.target).parent().attr('href', '#modal1').addClass('modal-trigger');
+      $('.modal-content').find('h4').text('Upload your photo');
+    } else if (that === 'chat') {
+      console.log(that);
+      $(e.target).parent().attr('href', '#modal1').addClass('modal-trigger');
+      $('.modal-content').find('h4').text('Write something');
     }
   });
 
