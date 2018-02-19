@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Flash Bitacora</title>
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -33,38 +35,54 @@
       <div class="row">
         <div class="col s12">
           <div id="buttons-bitacora">
-              <div class="fixed-action-btn horizontal">
-                  <a class="btn-floating btn-large red">
-                    <i class="large material-icons icon-write">mode_edit</i>
+            <div class="fixed-action-btn horizontal">
+              <a class="btn-floating btn-large red">
+                <i class="large material-icons icon-write">mode_edit</i>
+              </a>
+              <ul>
+                <li>
+                  <a class="btn-floating red">
+                    <i class="material-icons">chat</i>
                   </a>
-                  <ul>
-                    <li><a class="btn-floating red"><i class="material-icons">chat</i></a></li>
-                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">perm_media</i></a></li>
-                    <li><a class="btn-floating green"><i class="material-icons">today</i></a></li>
-                    <li><a class="btn-floating blue"><i class="material-icons">video_library</i></a></li>
-                  </ul>
-                </div>              
+                </li>
+                <li>
+                  <a class="btn-floating yellow darken-1">
+                    <i class="material-icons">perm_media</i>
+                  </a>
+                </li>
+                <li>
+                  <a class="btn-floating green">
+                    <i class="material-icons">today</i>
+                  </a>
+                </li>
+                <li>
+                  <a class="btn-floating blue">
+                    <i class="material-icons">video_library</i>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-     <!-- Modal Trigger -->
-  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+    <!-- Modal Trigger -->
+    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div id="thumbnail"></div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="agree-button">Agree</a>
+      </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
   </main>
   <script src="vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="vendors/materialize/js/materialize.min.js"></script>
   <script src="js/app.js"></script>
 </body>
+
 </html>
