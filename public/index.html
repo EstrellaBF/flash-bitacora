@@ -41,22 +41,22 @@
               </a>
               <ul>
                 <li>
-                  <a class="btn-floating red">
+                  <a class="btn-floating red" id="text">
                     <i class="material-icons">chat</i>
                   </a>
                 </li>
                 <li>
-                  <a class="btn-floating yellow darken-1">
+                  <a class="btn-floating yellow darken-1" id="image">
                     <i class="material-icons">perm_media</i>
                   </a>
                 </li>
                 <li>
-                  <a class="btn-floating green">
+                  <a class="btn-floating green" id="calendar">
                     <i class="material-icons">today</i>
                   </a>
                 </li>
                 <li>
-                  <a class="btn-floating blue">
+                  <a class="btn-floating blue" id="">
                     <i class="material-icons">video_library</i>
                   </a>
                 </li>
@@ -71,14 +71,38 @@
     <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <div id="thumbnail"></div>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="agree-button">Agree</a>
+    <div id="modal-box">
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Insert your file</h4>
+          <input type="file" id="input-file">
+          <input type="text" id="input-text">
+
+          <div id="form-text-input">
+          <div class="row">
+            <div class="input-field col s12">
+              <input value="" id="title-text" type="text" class="validate">
+              <label class="active" for="first_name2">Title</label>
+            </div>
+            <div class="input-field col s12">
+              <input value="" id="message_text" type="text" class="validate">
+              <label class="active" for="first_name2">Message</label>
+            </div>
+          </div>
+          </div>
+
+
+
+
+
+          <div id="thumbnail"></div>
+        </div>
+        <div class="modal-footer" id="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="id-default">Agree</a>
+        </div>
       </div>
     </div>
+
   </main>
   <script src="vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="vendors/materialize/js/materialize.min.js"></script>
