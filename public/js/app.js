@@ -77,10 +77,9 @@ $(document).ready(function () {
       $('#form-text-input').show();
       // Verificando que se escriba ambos campos
       $('#form-text-input').on('keyup', function () {
-        console.log($(this).find('input').val());
+        console.log($('#title-text').val().length>3);
         if ($('#title-text').val().length > 3 && $('#message_text').val().length > 3) {
-          debugger
-          console.log('SI VA');
+          $('#send-text').attr('disabled', false);
         } else {
           console.log('SIGUE INTENTANDO');
         }
