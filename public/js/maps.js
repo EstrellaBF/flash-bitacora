@@ -1,6 +1,6 @@
 
-const showMap = document.getElementById('map');
-console.log(showMap);
+// const document.getElementById('map') = document.getElementById('map');
+// console.log(document.getElementById('map'));
 let latitude;
 let longitude;
 
@@ -18,7 +18,7 @@ if (navigator.geolocation) {
         lat: latitude,
         lng: longitude
       };
-      let map = new google.maps.Map(showMap, {
+      let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
         center: getPosition
       });
@@ -86,7 +86,7 @@ if (navigator.geolocation) {
       // document.getElementById('mark-route').addEventListener('click', traceRoute);
     };
     let error = () => {
-      showMap.innerHTML = '<p>No se ingresó correctamente la dirección. Busca de nuevo.</p>';
+      document.getElementById('map').innerHTML = '<p>No se ingresó correctamente la dirección. Busca de nuevo.</p>';
     };
     navigator.geolocation.getCurrentPosition(localization, error);
   };

@@ -5,12 +5,12 @@ $(document).ready(function() {
   let $inputFile = $('#input-file');
   let $inputText = $('#input-text');
 
-  $('#map').hide();
+  // $('#map').hide();
   // Activando materialize form
   Materialize.updateTextFields();
 
 
-  // función input file image
+  // función input file imagen
   let imgFileSelect = (e) => {
     var files = e.target.files; // FileList object
     // Loop through the FileList and render image files as thumbnails.
@@ -19,6 +19,8 @@ $(document).ready(function() {
       if (!f.type.match('image.*')) {
         continue;
       }
+
+      $('#send-img').attr('disabled', false);
       var reader = new FileReader();
       // Closure to capture the file information.
       reader.onload = (function(theFile) {
@@ -35,46 +37,54 @@ $(document).ready(function() {
   // Evento botones
   $buttonsBitacora.on('click', 'li', function() {
     // console.log($(this));
-    console.log();
     // Video
     if ($(this).find('i').text() === 'video_library') {
-
-  $('#map').hide();
+      // $('#map').hide();
       console.log($(this));
     }
     // Calendar
     if ($(this).find('i').text() === 'today') {
-      console.log($(this));
-
-  $('#map').show();
+      // console.log($(this));
+      // $('#map').show();
       $inputText.show();
       $inputFile.hide();
       // Añadiendo el modal
       $(this).attr({ 'class': 'modal-trigger',
         'href': '#modal1' });
       $('#modal-footer').find('a').attr('id', 'send-calendar');
+      $('#send-calendar').attr('disabled', true);
       // Cambiando valores a los input de texto 
       $('#title-text').next().text('Title Event');
       $('#message_text').next().text('Insert your event date').attr('class', 'active');
       $('#message_text').attr({'type': 'date'});
-      // $thumbnail.append('<div id="map"></div>');
+
       // Evento que verificará el valor de la fecha al seleccionarlo
       $('#message_text').on('change', function() {
-        debugger;
-        console.log($(this).val());
-        initMap();
-        $thumbnail.append($(this).val());
-      });
-      $('#send-calendar').on('click', function() {
-        initMap();
-        // $modalContent.append('<div id="map"></div>');
+        // console.log($('#title-text').val());
+        // console.log($(this).val().length === 10);
+        if ($(this).val().length === 10 && $('#title-text').val()) {
+          // initMap();
+          // $thumbnail.append(`<p>${$('#title-text').val()}</p><p>${$(this).val()}</p>`);
+          $('#send-calendar').attr('disabled', false);
+          let getDate = $(this).val();
+          $modalContent.append(`<div class="event-box"><p>${$('#title-text').val()}</p><p>${getDate}</p></div>`);
+          initMap();
+          $('#send-calendar').on('click', function() {
+            initMap();
+            // $('#map').toggle();
+            $('#message-box').prepend(`<div class="event-box"><p>${$('#title-text').val()}</p><p>${getDate}</p><div id="map"></div></div>`);
+          });
+        } else {
+          $('#send-calendar').attr('disabled', true);
+        }
       });
     }
     // images 
     if ($(this).find('i').text() === 'perm_media') {
       console.log($(this));
+      $('#send-img').attr('disabled', true);
+      // $('#map').hide();
 
-  $('#map').hide();
       $inputText.hide();
       $inputFile.show();
       $(this).attr({ 'class': 'modal-trigger',
@@ -94,8 +104,10 @@ $(document).ready(function() {
     // text
     if ($(this).find('i').text() === 'chat') {
       // debugger
+
+      $('#message_text').val('');
       console.log($(this));
-      $('#map').hide();
+      // $('#map').hide();
       
       // Cambiando valores a los input de texto
       $('#title-text').next().text('Title');
