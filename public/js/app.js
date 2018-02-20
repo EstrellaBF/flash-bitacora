@@ -1,62 +1,3 @@
-
-    
-if (navigator.geolocation) {
-  // function initMap() {
-  //   function localization(position) {
-  //     console.log(position);
-  //     let latitude = position.coords.latitude;
-  //     let longitude = position.coords.longitude;
-  //     var uluru = {latitude,
-  //       longitude};
-  //     var map = new google.maps.Map(document.getElementById('map'), {
-  //       zoom: 4,
-  //       center: uluru
-  //     });
-  //     var marker = new google.maps.Marker({
-  //       position: uluru,
-  //       map: map
-  //     });
-  //   };
-  //   function error() {
-  //     alert = ('Insert a correct direction.');
-  //   };
-  //   navigator.geolocation.getCurrentPosition(localization, error);
-
-  var map;
-  function initialize() {
-    var mapOptions = {
-      zoom: 8,
-      center: {lat: -34.397, lng: 150.644}
-    };
-    map = new google.maps.Map(document.getElementById('map'),
-        mapOptions);
-
-    var marker = new google.maps.Marker({
-      // The below line is equivalent to writing:
-      // position: new google.maps.LatLng(-34.397, 150.644)
-      position: {lat: -34.397, lng: 150.644},
-      map: map
-    });
-
-    // You can use a LatLng literal in place of a google.maps.LatLng object when
-    // creating the Marker object. Once the Marker object is instantiated, its
-    // position will be available as a google.maps.LatLng object. In this case,
-    // we retrieve the marker's position using the
-    // google.maps.LatLng.getPosition() method.
-    var infowindow = new google.maps.InfoWindow({
-      content: '<p>Marker Location:' + marker.getPosition() + '</p>'
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map, marker);
-    });
-  }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-} else {
-  alert('Your browser doesn\'t support geolocation');
-}
-
 $(document).ready(function() {
   const $buttonsBitacora = $('#buttons-bitacora');
   const $modalContent = $('.modal-content');
@@ -64,15 +5,10 @@ $(document).ready(function() {
   let $inputFile = $('#input-file');
   let $inputText = $('#input-text');
 
+  $('#map').hide();
   // Activando materialize form
   Materialize.updateTextFields();
 
- 
-  // // Evento mapa calendar
-  // function maps() {
-  //   let dateSelected = $('#message_text').val();
-  //   // console.log(dateSelected);
-  // };
 
   // función input file image
   let imgFileSelect = (e) => {
@@ -102,11 +38,15 @@ $(document).ready(function() {
     console.log();
     // Video
     if ($(this).find('i').text() === 'video_library') {
+
+  $('#map').hide();
       console.log($(this));
     }
     // Calendar
     if ($(this).find('i').text() === 'today') {
       console.log($(this));
+
+  $('#map').show();
       $inputText.show();
       $inputFile.hide();
       // Añadiendo el modal
@@ -133,6 +73,8 @@ $(document).ready(function() {
     // images 
     if ($(this).find('i').text() === 'perm_media') {
       console.log($(this));
+
+  $('#map').hide();
       $inputText.hide();
       $inputFile.show();
       $(this).attr({ 'class': 'modal-trigger',
@@ -153,6 +95,8 @@ $(document).ready(function() {
     if ($(this).find('i').text() === 'chat') {
       // debugger
       console.log($(this));
+      $('#map').hide();
+      
       // Cambiando valores a los input de texto
       $('#title-text').next().text('Title');
       $('#message_text').next().text('Message');
