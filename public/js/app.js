@@ -39,7 +39,6 @@ $(document).ready(function() {
     // console.log($(this));
     // Video
     if ($(this).find('i').text() === 'video_library') {
-      // $('#map').hide();
       console.log($(this));
     }
     // Calendar
