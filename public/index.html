@@ -42,23 +42,23 @@
                 <i class="large material-icons icon-write">mode_edit</i>
               </a>
               <ul>
-                <li>
+                <li class="modal-trigger" href="#modalm">
                   <a class="btn-floating red" id="text">
                     <i class="material-icons">chat</i>
                   </a>
                 </li>
-                <li>
-                  <a class="btn-floating yellow darken-1" id="image">
+                <li class="modal-trigger" href="#modalimg">
+                  <a class="btn-floating yellow darken-1">
                     <i class="material-icons">perm_media</i>
                   </a>
                 </li>
-                <li>
-                  <a class="btn-floating green" id="calendar">
+                <li class="modal-trigger" href="#modalc">
+                  <a class="btn-floating green">
                     <i class="material-icons">today</i>
                   </a>
                 </li>
-                <li>
-                  <a class="btn-floating blue" id="">
+                <li class="modal-trigger" href="#modalv">
+                  <a class="btn-floating blue">
                     <i class="material-icons">video_library</i>
                   </a>
                 </li>
@@ -72,34 +72,117 @@
     <!-- Modal Trigger -->
     <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
-    <!-- Modal Structure -->
-    <div id="modal-box">
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4>Insert your file</h4>
-          <input type="file" id="input-file">
-          <!-- <input type="text" id="input-text"> -->
-          <div id="input-text">
-            <div class="row">
-              <div class="input-field col s12">
-                <input value="" id="title-text" type="text" class="validate">
-                <label class="active" for="title-text">Title</label>
-              </div>
-              <div class="input-field col s12">
-                <input value="" id="message_text" type="text" class="validate">
-                <label class="active" for="message_text">Message</label>
-              </div>
+
+
+
+
+
+
+    <!-- Modal Video -->
+    <div id="modalv" class="modal">
+      <div class="modal-content">
+        <h4>Insert your file</h4>
+        <div id="input-text">
+          <div class="row">
+            <div class="input-field col s12">
+              <input value="" id="title-media" type="text" class="validate">
+              <label class="active" for="title-media">Title</label>
             </div>
           </div>
-          <div id="thumbnail">
-            <!-- <div id="map"></div> -->
-          </div>
         </div>
-        <div class="modal-footer" id="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="id-default">Agree</a>
+        <div id="input-form">
+          <form action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input type="file" id="video-upload">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div id="thumbnail-vid">
         </div>
       </div>
+      <div class="modal-footer" id="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="send-media">Agree</a>
+      </div>
     </div>
+
+
+    <!-- Modal Calendar -->
+    <div id="modalc" class="modal">
+      <div class="modal-content">
+        <h4>Insert your file</h4>
+        <div class="row">
+          <div class="input-field col s12">
+            <input value="" id="title-cal" type="text" class="validate">
+            <label class="active" for="title-cal">Title Event</label>
+          </div>
+          <div class="input-field col s12">
+            <input value="" id="message_cal" type="date" class="validate">
+            <label class="active" for="message_cal">Insert your event date</label>
+          </div>
+        </div>
+        <div id="thumbnail-cal">
+        </div>
+      </div>
+      <div class="modal-footer" id="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="send-calendar" disabled="disabled">Agree</a>
+      </div>
+    </div>
+
+    <!-- Modal Image -->
+    <div id="modalimg" class="modal">
+      <div class="modal-content">
+        <h4>Insert your file</h4>
+        <div id="input-form">
+          <form action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input type="file" id="image-upload">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div id="thumbnail-img">
+        </div>
+      </div>
+      <div class="modal-footer" id="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="send-img" disabled="disabled">Agree</a>
+      </div>
+    </div>
+
+    <!-- Modal Message -->
+    <div id="modalm" class="modal">
+      <div class="modal-content">
+        <h4>Insert your file</h4>
+        <div id="input-text">
+          <div class="row">
+            <div class="input-field col s12">
+              <input value="" id="title-text" type="text" class="validate">
+              <label class="active" for="title-text">Title</label>
+            </div>
+            <div class="input-field col s12">
+              <input value="" id="message_text" type="text" class="validate">
+              <label class="active" for="message_text">Message</label>
+            </div>
+          </div>
+        </div>
+        <div id="thumbnail-ms">
+        </div>
+      </div>
+      <div class="modal-footer" id="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="send-message" disabled="disabled">Agree</a>
+      </div>
+    </div>
+
 
   </main>
   <!-- API google -->
