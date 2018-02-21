@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="vendors/materialize/css/materialize.min.css">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Caveat:400,700|Raleway:400,500,600,700" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <title>Flash Bitacora</title>
 </head>
@@ -17,7 +19,10 @@
     <div class="container">
       <div class="row">
         <div class="col s12">
-          <h1>Flash Bitacora</h1>
+          <div class="about-bitacora">
+            <h1>FLASH BITACORA</h1>
+            <p>Save everything you want, and check it out here easily</p>
+          </div>
         </div>
       </div>
     </div>
@@ -68,21 +73,11 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal Trigger -->
-    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
-
-
-
-
-
-
-
     <!-- Modal Video -->
     <div id="modalv" class="modal">
       <div class="modal-content">
-        <h4>Insert your file</h4>
-        <div id="input-text">
+        <h4>Save your video or audio.</h4>
+        <div id="input-text-vid">
           <div class="row">
             <div class="input-field col s12">
               <input value="" id="title-media" type="text" class="validate">
@@ -107,15 +102,13 @@
         </div>
       </div>
       <div class="modal-footer" id="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="send-media">Agree</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="send-media" disabled="disabled">Agree</a>
       </div>
     </div>
-
-
     <!-- Modal Calendar -->
     <div id="modalc" class="modal">
       <div class="modal-content">
-        <h4>Insert your file</h4>
+        <h4>Save an important date here.</h4>
         <div class="row">
           <div class="input-field col s12">
             <input value="" id="title-cal" type="text" class="validate">
@@ -133,11 +126,10 @@
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="send-calendar" disabled="disabled">Agree</a>
       </div>
     </div>
-
     <!-- Modal Image -->
     <div id="modalimg" class="modal">
       <div class="modal-content">
-        <h4>Insert your file</h4>
+        <h4>Save your favourite pic.</h4>
         <div id="input-form">
           <form action="#">
             <div class="file-field input-field">
@@ -163,7 +155,7 @@
     <div id="modalm" class="modal">
       <div class="modal-content">
         <h4>Insert your file</h4>
-        <div id="input-text">
+        <div id="input-text-ms">
           <div class="row">
             <div class="input-field col s12">
               <input value="" id="title-text" type="text" class="validate">

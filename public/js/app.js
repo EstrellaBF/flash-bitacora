@@ -7,62 +7,48 @@ $(document).ready(function() {
   // Activando materialize form
   Materialize.updateTextFields();
 
-  // Evento botones
+
+  // Evento para elegir las opciones
   $buttonsBitacora.on('click', 'li', function() {
-    // console.log($(this));
-    // Video
+    $('.file-path').val('');
     if ($(this).find('i').text() === 'video_library') {
       // console.log($(this));
-      $('#send-media').attr('disabled', false);
-      let videoInput = document.getElementById('video-upload');
-      let thumbnailVid = document.getElementById('thumbnail-vid');
+      $('#title-media').val('');
+      let videoInput = $('#video-upload');
+      let thumbnailVid = $('#thumbnail-vid');
       $('#video-upload').change(function() {
-        console.log(this);
+        // console.log(this);
         let videoAudioUpload = this.files[0];
         let typeFile;
-        console.log(videoAudioUpload);
         if (videoAudioUpload.type.match('audio.*')) {
+          $('#send-media').attr('disabled', false);
           typeFile = 'audio';
-          console.log('audio'); // typo
-          console.log(URL.createObjectURL(videoAudioUpload)); 
-          // console.log(url);
-
-          $('#thumbnail-vid').append(`<div class="audio"><audio src="${URL.createObjectURL(videoAudioUpload)}" controls></audio></div>`)
-
-        //   <video class="responsive-video" controls>
-        //   <source src="movie.mp4" type="video/mp4">
-        // </video>
+          $('#thumbnail-vid').append(`<div class="audio"><audio src="${URL.createObjectURL(videoAudioUpload)}" controls></audio></div>`);
         } else if (videoAudioUpload.type.match('video.*')) {
+          $('#send-media').attr('disabled', false);
           typeFile = 'video';
-          console.log('video');
-
-          $('#thumbnail-vid').append(`<div class="audio"><video src="${URL.createObjectURL(videoAudioUpload)}" controls></audio></div>`)
+          $('#thumbnail-vid').append(`<div class="video"><video class="responsive-video" src="${URL.createObjectURL(videoAudioUpload)}" controls></video></div>`);
         } else {
-          alert('only video and audio');
+          $('#send-media').attr('disabled', true);
         };
         $('#send-media').on('click', function() {
-          console.log($('#thumbnail-vid').html());
-          $('#message-box').prepend(`${$('#thumbnail-vid').html()}`)
+          console.log(typeFile);
+          $('#message-box').prepend(`<div class="media-box"><p>${$('#title-media').val()}</p>${$('#thumbnail-vid').html()}</div>`)
         });
       });
-    }
+    }  
     // Calendar
     if ($(this).find('i').text() === 'today') {
-
+      $('#thumbnail-cal').val('');
       // Evento que verificará el valor de la fecha al seleccionarlo
       $('#message_cal').on('change', function() {
-        // console.log($('#title-cal').val());
-        // console.log($(this).val());
         if ($(this).val().length === 10 && $('#title-cal').val()) {
-          // initMap();
-          // $thumbnail.append(`<p>${$('#title-text').val()}</p><p>${$(this).val()}</p>`);
           $('#send-calendar').attr('disabled', false);
           let getDate = $(this).val();
-          $modalContent.append(`<div class="event-box"><p>${$('#title-cal').val()}</p><p>${getDate}</p></div>`);
+          // $modalContent.append(`<div class="event-box"><p>${$('#title-cal').val()}</p><p>${getDate}</p></div>`);
           initMap();
           $('#send-calendar').on('click', function() {
             initMap();
-            // $('#map').toggle();
             $('#message-box').prepend(`<div class="event-box"><p>${$('#title-cal').val()}</p><p>${getDate}</p><div id="map"></div></div>`);
           });
         } else {
@@ -82,7 +68,6 @@ $(document).ready(function() {
           let reader = new FileReader();
           reader.onload = function(e) {
             thumbnailImg.innerHTML = '';
-
             // Creando una nueva imagen
             let img = new Image();
             img.src = reader.result;
@@ -97,7 +82,7 @@ $(document).ready(function() {
         $('#send-img').on('click', function() {
           var imageSelected = thumbnailImg.innerHTML;
           console.log(imageSelected);
-          $('#message-box').append(`<div class="img-selected">${imageSelected}</div>`);
+          $('#message-box').prepend(`<div class="img-selected">${imageSelected}</div>`);
         });
 
       });
@@ -106,9 +91,11 @@ $(document).ready(function() {
     if ($(this).find('i').text() === 'chat') {
       // debugger
       $('#message_text').val('');
+      $('#title-text').val('')
       // Verificando que se escriba ambos campos
-      $inputText.on('keyup', function() {
-        console.log($('#title-text').val().length);
+      $('#input-text-ms').on('keyup', function() {
+        console.log($('#message_text').val());
+        console.log($('#title-text').val());
         if ($('#title-text').val().length > 2 && $('#message_text').val().length > 2) {
           console.log('cumple');
           $('#send-message').attr('disabled', false);
